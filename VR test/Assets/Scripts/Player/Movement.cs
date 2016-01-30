@@ -14,7 +14,6 @@ public class Movement : MonoBehaviour
      
 
         
-        print(Input.GetAxis("Vertical"));
         if (Input.GetAxis("Vertical") < 0){
 
 		    transform.position += GameObject.Find ("Eyes").GetComponent<Camera> ().transform.forward * speed * Time.deltaTime;
