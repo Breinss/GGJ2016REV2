@@ -34,4 +34,20 @@ public class Movement : MonoBehaviour
         }
 
     }
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Dome"))
+        {
+            Debug.Log("collide");
+            relocate(transform.position);
+        }
+    }
+    
+    void relocate(Vector3 position)
+    {
+        Debug.Log("relocate");
+        position.x *= -0.5f;
+        position.z *= -1;
+        transform.position = position;
+    }
 }
