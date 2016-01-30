@@ -20,14 +20,23 @@ public class NaratorControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!voice.isPlaying) {
-			StartSpeaking ("power_up");
-
-		}
+		ClearCurrentlyPlaying ();
 	}
 	void StartSpeaking(string _clip){
 		playing.Add (_clip);
 		voice.clip = Resources.Load (_clip) as AudioClip;
 		voice.Play (44100);
+
+		if(!voice.isPlaying){
+			playing.Add (_clip);
+		}
+	}
+	void ClearCurrentlyPlaying(){
+		if(!voice.isPlaying && playing.Count >= 1){
+			//Checks if the voice has stoped and then clears the currentplaying array
+			foreach (string _clip in playing) {
+				playing.Remove (_clip);
+			}
+		}
 	}
 }
