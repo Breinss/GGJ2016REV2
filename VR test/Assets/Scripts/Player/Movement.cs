@@ -11,9 +11,7 @@ public class Movement : MonoBehaviour
 	public void FixedUpdate(){
         rotationPlayer = transform.rotation;
         Debug.Log(rotationPlayer);
-     
-
-        
+           
         print(Input.GetAxis("Vertical"));
         if (Input.GetAxis("Vertical") < 0){
 
