@@ -10,11 +10,9 @@ public class Movement : MonoBehaviour
 	}
 	public void FixedUpdate(){
         rotationPlayer = transform.rotation;
-        Debug.Log(rotationPlayer);
            
-        print(Input.GetAxis("Vertical"));
-        if (Input.GetAxis("Vertical") < 0){
-
+        if (Input.GetAxis("Vertical") < 0)
+        {
 		    transform.position += GameObject.Find ("Eyes").GetComponent<Camera> ().transform.forward * speed * Time.deltaTime;
 		}
 

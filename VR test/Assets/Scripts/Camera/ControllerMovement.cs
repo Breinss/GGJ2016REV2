@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ControllerMovement : MonoBehaviour {
 
-    public float sens = 15f;
+    public float sens = 30f;
 
     void FixedUpdate()
     {
