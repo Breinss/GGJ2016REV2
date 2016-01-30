@@ -4,12 +4,11 @@ using System.Collections;
 public class Movement : MonoBehaviour
 {
 	public float speed;
-    Quaternion rotationPlayer;
+
 	public void Start(){
 
 	}
 	public void FixedUpdate(){
-        rotationPlayer = transform.rotation;
            
         if (Input.GetAxis("Vertical") < 0)
         {
@@ -29,5 +28,22 @@ public class Movement : MonoBehaviour
             transform.position += GameObject.Find("Eyes").GetComponent<Camera>().transform.right * speed * Time.deltaTime * -1;
         }
 
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Dome"))
+        {
+            Debug.Log("collide");
+            relocate(transform.position);
+        }
+    }
+
+    void relocate(Vector3 position)
+    {
+        Debug.Log("relocate");
+        position.x *= -0.5f;
+        position.z *= -1;
+        transform.position = position;
     }
 }
